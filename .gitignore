@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+# directory for compiled objects
+build/
+bin/
+.vscode/
+.idea/
