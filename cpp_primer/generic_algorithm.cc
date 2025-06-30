@@ -239,6 +239,62 @@ void f_10_36()
     cout << distance(ilst.cbegin(), iter2.base()) << endl;
 }
 
+void f_merge_sort()
+{
+    vector<int> v1 = {1, 3, 5, 7, 9};
+    vector<int> v2 = {2, 4, 6, 8, 10};
+    vector<int> merged(v1.size() + v2.size());
+
+    merge(v1.begin(), v1.end(), v2.begin(), v2.end(), merged.begin());
+
+    cout << "Merged vector: ";
+    for (const auto& item : merged) {
+        cout << item << " ";
+    }
+    cout << endl;
+}
+
+void _f_11_8(vector<int>& v)
+{
+    // using vector to emulate the behavior of a set
+   sort(v.begin(), v.end());
+   auto last = unique(v.begin(), v.end());
+   v.erase(last, v.end());
+}
+
+void f_11_8()
+{
+    vector<int> v = {1, 2, 3, 4, 5, 3, 4, 5, 6, 7, 8, 9};
+    
+    v.push_back(7); // Add an element to the end of the vector
+    _f_11_8(v); // Remove duplicates
+    cout << "Vector after removing duplicates: ";
+    for (const auto& item : v) {
+        cout << item << " ";
+    }
+    cout << endl;
+}
+
+void f_11_12()
+{
+    vector<string> v = {"apple", "banana", "cherry", "date", "elderberry", "fig", "grape"};
+    vector<int> v_lengths;
+    vector<pair<string,int>> v_pairs;
+
+    for(const auto& item : v) {
+        v_lengths.push_back(item.size()); // Store the lengths of the strings
+    }
+
+    for(auto i = 0; i < v.size(); ++i) {
+        v_pairs.emplace_back(v[i], v_lengths[i]);
+    }
+
+    for(const auto& item : v_pairs) {
+        cout << "String: " << item.first << ", Length: " << item.second << endl;
+    }
+}
+
+
 
 int main(){
     vector<int> vec({1, 2, 3, 4, 5, 3, 4, 5, 6, 7, 8, 9});
@@ -266,5 +322,11 @@ int main(){
     find_iter();
 
     f_10_36();
+
+    f_merge_sort();
+
+    f_11_8();
+
+    f_11_12();
     cout << "All operations completed successfully." << endl;
 }
