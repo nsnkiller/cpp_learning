@@ -36,3 +36,7 @@ build/
 bin/
 .vscode/
 .idea/
+
+
+test.cpp
+.gitignore
