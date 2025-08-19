@@ -36,6 +36,7 @@ build/
 bin/
 .vscode/
 .idea/
+test/
 
 
 test.cpp
